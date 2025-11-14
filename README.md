@@ -1,13 +1,23 @@
-# 🩸 Blood Donation Management System (BDMS) - MERN Stack
+# 🩸 Blood Donation Management System (BDMS)
 
 <div align="center">
 
-![BDMS](https://img.shields.io/badge/BDMS-Blood%20Donation%20Management-blue?style=for-the-badge)
+![BDMS](https://img.shields.io/badge/BDMS-Blood%20Donation%20Management-red?style=for-the-badge&logo=heart&logoColor=white)
 ![MERN](https://img.shields.io/badge/Stack-MERN-green?style=for-the-badge)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 
-**A comprehensive web application for managing blood donation requests, donor profiles, inventory, and administrative operations.**
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/Jayasakthi-07/bdms-MERN?style=social)](https://github.com/Jayasakthi-07/bdms-MERN/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Jayasakthi-07/bdms-MERN?style=social)](https://github.com/Jayasakthi-07/bdms-MERN/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/Jayasakthi-07/bdms-MERN)](https://github.com/Jayasakthi-07/bdms-MERN/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/Jayasakthi-07/bdms-MERN)](https://github.com/Jayasakthi-07/bdms-MERN/pulls)
+
+**A comprehensive full-stack web application for managing blood donation operations, built with modern technologies to save lives efficiently.**
+
+[⭐ Star this repo](https://github.com/Jayasakthi-07/bdms-MERN) • [🐛 Report Bug](https://github.com/Jayasakthi-07/bdms-MERN/issues) • [💡 Request Feature](https://github.com/Jayasakthi-07/bdms-MERN/issues) • [📖 Documentation](#-api-documentation)
 
 </div>
 
@@ -15,153 +25,122 @@
 
 ## 📋 Table of Contents
 
-- [About](#about)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [API Documentation](#api-documentation)
-- [Docker Deployment](#docker-deployment)
-- [Contributing](#contributing)
-- [License](#license)
-
----
-
-## 🎯 About
-
-BDMS is a full-stack web application built with the MERN (MongoDB, Express.js, React, Node.js) stack. It provides a complete solution for managing blood donation operations, including donor registration, appointment scheduling, inventory management, and real-time notifications. The system ensures efficient coordination between donors and administrators while maintaining comprehensive audit logs and analytics.
+- [✨ Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🚀 Quick Start](#-quick-start)
+- [📦 Installation](#-installation)
+- [⚙️ Configuration](#️-configuration)
+- [🎮 Usage](#-usage)
+- [📁 Project Structure](#-project-structure)
+- [📚 API Documentation](#-api-documentation)
+- [🐳 Docker Deployment](#-docker-deployment)
+- [🤝 Contributing](#-contributing)
+- [📝 License](#-license)
 
 ---
 
 ## ✨ Features
 
-### For Donors
+### 👥 For Donors
 
-- ✅ **User Registration & Authentication**
-  - Secure signup and login with JWT tokens
-  - Password reset functionality
-  - Profile management
+- 🔐 **Secure Authentication** - JWT-based authentication with password reset
+- ✅ **Eligibility Checker** - Automatic verification based on age, weight, donation interval
+- 📅 **Request Management** - Create, track, and manage donation requests
+- 🔔 **Real-time Notifications** - Instant updates via Socket.io and email
+- 📊 **Personal Dashboard** - View donation history, statistics, and achievements
+- 🏆 **Badge System** - Earn badges for your contributions
 
-- ✅ **Eligibility Checker**
-  - Automatic eligibility verification based on:
-    - Age requirements (18-65 years)
-    - Minimum weight (45kg)
-    - Donation interval (90 days between donations)
-    - Health status
+### 👨‍💼 For Administrators
 
-- ✅ **Donation Request Management**
-  - Create new donation requests
-  - View request status (Pending, Approved, Rejected, Completed)
-  - Track donation history
-  - Cancel requests if needed
+- 👥 **Donor Management** - Comprehensive donor database with search and filters
+- ✅ **Request Approval Queue** - Review and manage donation requests
+- 📦 **Inventory Management** - Track blood stock with low-stock alerts
+- 📈 **Analytics Dashboard** - Visual charts and metrics for insights
+- 📋 **Audit Logs** - Complete activity tracking and history
+- ⚙️ **Settings Management** - Profile and account management
 
-- ✅ **Real-time Notifications**
-  - Socket.io powered instant notifications
-  - Email notifications for important updates
-  - Notification bell with unread count
+### 🎯 Key Highlights
 
-- ✅ **Dashboard & Analytics**
-  - Personal donation statistics
-  - Badge system for achievements
-  - Donation history with detailed records
-
-### For Administrators
-
-- ✅ **Donor Management**
-  - View all registered donors
-  - Search and filter donors by blood group, status, etc.
-  - Activate/deactivate donor accounts
-  - View detailed donor profiles
-
-- ✅ **Request Approval Queue**
-  - Review pending donation requests
-  - Approve or reject requests with notes
-  - Schedule appointments
-  - Mark requests as completed
-
-- ✅ **Inventory Management**
-  - Track blood stock by blood group
-  - Low stock alerts
-  - Add, update, and delete inventory records
-  - View inventory summary and statistics
-
-- ✅ **Analytics & Metrics**
-  - Dashboard with key metrics
-  - Blood group distribution charts
-  - Monthly donation trends
-  - Request status overview
-  - Fulfillment rate analysis
-
-- ✅ **Audit Logs**
-  - Complete activity tracking
-  - User action history
-  - System event logs
-
-- ✅ **Settings Management**
-  - Update admin profile
-  - Change password
-  - Account information
+- ⚡ **Real-time Updates** - Socket.io for instant notifications
+- 🔒 **Secure** - JWT authentication, password hashing, rate limiting
+- 📱 **Responsive Design** - Works on all devices
+- 🎨 **Modern UI** - Material-UI with Tailwind CSS
+- 📊 **Analytics** - Comprehensive metrics and reporting
+- 🐳 **Docker Ready** - Easy deployment with Docker Compose
+- 📖 **API Documentation** - Swagger/OpenAPI documentation
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.3.3-007ACC?logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-5.0.11-646CFF?logo=vite)
+![Material-UI](https://img.shields.io/badge/MUI-5.15.3-007FFF?logo=mui)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.1-38B2AC?logo=tailwind-css)
 
-- **React 18** - UI library
-- **TypeScript** - Type safety
-- **Vite** - Build tool and dev server
-- **React Router** - Routing
-- **Material-UI (MUI)** - Component library
-- **Tailwind CSS** - Utility-first CSS
-- **React Query (TanStack Query)** - Data fetching and caching
-- **React Hook Form** - Form management
-- **Zod** - Schema validation
+- **React 18** - Modern UI library
+- **TypeScript** - Type-safe development
+- **Vite** - Lightning-fast build tool
+- **Material-UI** - Beautiful components
+- **Tailwind CSS** - Utility-first styling
+- **React Query** - Data fetching & caching
 - **Socket.io Client** - Real-time communication
 - **Recharts** - Data visualization
-- **Framer Motion** - Animations
-- **React Hot Toast** - Notifications
 
 ### Backend
+![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=nodedotjs)
+![Express](https://img.shields.io/badge/Express-4.18.2-000000?logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-7-47A248?logo=mongodb)
+![Socket.io](https://img.shields.io/badge/Socket.io-4.6.1-010101?logo=socket.io)
 
-- **Node.js** - Runtime environment
+- **Node.js** - JavaScript runtime
 - **Express.js** - Web framework
-- **TypeScript** - Type safety
-- **MongoDB** - Database
-- **Mongoose** - ODM
+- **MongoDB** - NoSQL database
+- **Mongoose** - ODM for MongoDB
 - **JWT** - Authentication
-- **Bcrypt** - Password hashing
 - **Socket.io** - Real-time communication
-- **Nodemailer** - Email service
 - **Swagger** - API documentation
-- **Zod** - Schema validation
-- **Helmet** - Security headers
-- **CORS** - Cross-origin resource sharing
-- **Express Rate Limit** - Rate limiting
+- **Nodemailer** - Email service
 
 ### DevOps
-
-- **Docker** - Containerization
-- **Docker Compose** - Multi-container orchestration
-- **Git** - Version control
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)
+![Git](https://img.shields.io/badge/Git-Version%20Control-F05032?logo=git)
 
 ---
 
-## 📦 Prerequisites
+## 🚀 Quick Start
 
-Before you begin, ensure you have the following installed:
+### Prerequisites
 
 - Node.js (v18 or higher)
 - npm or yarn
-- MongoDB (v7 or higher) or use Docker
-- Git
+- MongoDB (v7 or higher) or Docker
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Jayasakthi-07/bdms-MERN.git
+cd bdms-MERN
+
+# Install all dependencies
+npm run install:all
+
+# Setup environment variables
+cp server/.env.example server/.env
+cp client/.env.example client/.env
+
+# Start development servers
+npm run dev
+```
+
+Visit `http://localhost:5173` to see the application! 🎉
 
 ---
 
-## 🚀 Installation
+## 📦 Installation
 
 ### Step 1: Clone the Repository
 
@@ -181,72 +160,34 @@ npm run install:all
 **Option 2: Install Separately**
 
 ```bash
-# Install root dependencies
-npm install
-
-# Install client dependencies
-cd client
-npm install
-cd ..
-
-# Install server dependencies
-cd server
-npm install
-cd ..
+npm install                    # Root dependencies
+cd client && npm install && cd ..  # Client dependencies
+cd server && npm install && cd ..  # Server dependencies
 ```
 
 ### Step 3: Environment Setup
 
-**Server Environment:**
-
-Create a `.env` file in the `server` directory:
-
-```bash
-cd server
-cp .env.example .env
-```
-
-Edit `server/.env` with your configuration:
+**Server Environment (`server/.env`):**
 
 ```env
-# Server Configuration
 PORT=5000
 NODE_ENV=development
-
-# MongoDB
 MONGODB_URI=mongodb://localhost:27017/bdms
-
-# JWT
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+JWT_SECRET=your-super-secret-jwt-key
 JWT_EXPIRES_IN=7d
 JWT_REFRESH_SECRET=your-refresh-secret-key
 JWT_REFRESH_EXPIRES_IN=30d
-
-# Email Configuration (for notifications)
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASS=your-app-password
 EMAIL_FROM=noreply@bdms.com
-
-# Frontend URL (for CORS)
 FRONTEND_URL=http://localhost:5173
-
-# Rate Limiting
 RATE_LIMIT_WINDOW_MS=900000
 RATE_LIMIT_MAX_REQUESTS=100
 ```
 
-**Client Environment:**
-
-Create a `.env` file in the `client` directory:
-
-```bash
-cd client
-cp .env.example .env
-```
-
-Edit `client/.env`:
+**Client Environment (`client/.env`):**
 
 ```env
 VITE_API_URL=http://localhost:5000
@@ -260,8 +201,6 @@ VITE_API_URL=http://localhost:5000
 
 **Option 1: Local MongoDB**
 
-Make sure MongoDB is running on your system:
-
 ```bash
 # Windows
 mongod
@@ -271,8 +210,6 @@ sudo systemctl start mongod
 ```
 
 **Option 2: Docker MongoDB**
-
-Use the provided `docker-compose.yml`:
 
 ```bash
 docker-compose up -d mongodb
@@ -284,58 +221,32 @@ docker-compose up -d mongodb
 
 ### Development Mode
 
-**Run Both Client and Server:**
-
 ```bash
+# Run both client and server
 npm run dev
-```
 
-This will start:
-- **Server** on `http://localhost:5000`
-- **Client** on `http://localhost:5173`
-
-**Run Separately:**
-
-```bash
-# Server only
-npm run server:dev
-
-# Client only
-npm run client:dev
+# Run separately
+npm run server:dev  # Server only (port 5000)
+npm run client:dev  # Client only (port 5173)
 ```
 
 ### Seed Database
 
-To populate the database with sample data:
-
 ```bash
+# Populate with sample data
 npm run seed
-```
 
-For Tamil donor names:
-
-```bash
-cd server
-npm run seed:tamil
+# Tamil donor names
+cd server && npm run seed:tamil
 ```
 
 ### Production Build
 
 ```bash
-# Build both client and server
-npm run build
-
-# Build client only
-npm run client:build
-
-# Build server only
-npm run server:build
-```
-
-### Start Production Server
-
-```bash
-npm run start:prod
+npm run build           # Build both
+npm run client:build    # Client only
+npm run server:build    # Server only
+npm run start:prod      # Start production server
 ```
 
 ---
@@ -344,118 +255,101 @@ npm run start:prod
 
 ```
 bdms-MERN/
-├── client/                 # React frontend application
-│   ├── public/            # Static assets
+├── client/                 # React frontend
 │   ├── src/
-│   │   ├── api/           # API service functions
+│   │   ├── api/           # API services
 │   │   ├── components/    # React components
-│   │   │   ├── admin/     # Admin-specific components
-│   │   │   ├── auth/      # Authentication components
-│   │   │   ├── common/    # Shared components
-│   │   │   ├── donor/     # Donor-specific components
-│   │   │   └── notifications/ # Notification components
-│   │   ├── hooks/         # Custom React hooks
+│   │   ├── hooks/         # Custom hooks
 │   │   ├── layouts/       # Layout components
 │   │   ├── pages/         # Page components
-│   │   ├── routes/        # Route configuration
+│   │   ├── routes/        # Route config
 │   │   ├── store/         # Context providers
-│   │   ├── styles/        # Global styles
-│   │   └── utils/         # Utility functions
-│   ├── package.json
-│   └── vite.config.ts
+│   │   └── utils/         # Utilities
+│   └── package.json
 │
-├── server/                 # Node.js backend application
+├── server/                 # Node.js backend
 │   ├── src/
-│   │   ├── config/        # Configuration files
+│   │   ├── config/        # Configuration
 │   │   ├── controllers/  # Route controllers
 │   │   ├── middleware/   # Express middleware
 │   │   ├── models/        # Mongoose models
 │   │   ├── routes/        # API routes
-│   │   ├── scripts/       # Database seeding scripts
-│   │   ├── services/      # Business logic services
-│   │   ├── utils/         # Utility functions
-│   │   ├── validators/    # Request validators
-│   │   ├── app.ts         # Express app setup
-│   │   └── server.ts      # Server entry point
-│   ├── package.json
-│   └── tsconfig.json
+│   │   ├── services/      # Business logic
+│   │   └── utils/         # Utilities
+│   └── package.json
 │
-├── docker-compose.yml      # Docker Compose configuration
-├── Dockerfile              # Root Dockerfile
-├── package.json            # Root package.json
-└── README.md               # This file
+├── docker-compose.yml      # Docker config
+└── README.md
 ```
 
 ---
 
 ## 📚 API Documentation
 
-Once the server is running, you can access the Swagger API documentation at:
+Once the server is running, access the interactive API documentation:
 
 - **Swagger UI:** `http://localhost:5000/api-docs`
 - **API Base URL:** `http://localhost:5000/api`
 
-### Main API Endpoints
+### Main Endpoints
 
-#### Authentication
+<details>
+<summary><b>Authentication</b></summary>
+
 - `POST /api/auth/register` - Register new user
 - `POST /api/auth/login` - User login
 - `POST /api/auth/logout` - User logout
-- `POST /api/auth/refresh` - Refresh access token
+- `POST /api/auth/refresh` - Refresh token
 - `POST /api/auth/forgot-password` - Request password reset
 - `POST /api/auth/reset-password` - Reset password
+</details>
 
-#### User
-- `GET /api/users/me` - Get current user profile
-- `PUT /api/users/me` - Update user profile
+<details>
+<summary><b>User</b></summary>
+
+- `GET /api/users/me` - Get profile
+- `PUT /api/users/me` - Update profile
 - `PATCH /api/users/me/change-password` - Change password
-- `GET /api/users/me/history` - Get donation history
+- `GET /api/users/me/history` - Donation history
 - `GET /api/users/me/eligibility` - Check eligibility
+</details>
 
-#### Donation Requests
-- `POST /api/requests` - Create donation request
+<details>
+<summary><b>Donation Requests</b></summary>
+
+- `POST /api/requests` - Create request
 - `GET /api/requests` - Get user's requests
-- `GET /api/requests/:id` - Get request by ID
+- `GET /api/requests/:id` - Get by ID
 - `PATCH /api/requests/:id/cancel` - Cancel request
+</details>
 
-#### Admin
+<details>
+<summary><b>Admin</b></summary>
+
 - `GET /api/admin/donors` - Get all donors
-- `GET /api/admin/donors/:id` - Get donor by ID
-- `PATCH /api/admin/donors/:id/toggle-status` - Toggle donor status
+- `PATCH /api/admin/donors/:id/toggle-status` - Toggle status
 - `GET /api/admin/requests` - Get all requests
 - `PATCH /api/admin/requests/:id/approve` - Approve request
 - `PATCH /api/admin/requests/:id/reject` - Reject request
-- `PATCH /api/admin/requests/:id/complete` - Complete request
 - `GET /api/admin/audit-logs` - Get audit logs
+</details>
 
-#### Inventory
+<details>
+<summary><b>Inventory</b></summary>
+
 - `GET /api/inventory` - Get all inventory
-- `POST /api/inventory` - Create inventory record
-- `PUT /api/inventory/:id` - Update inventory
-- `DELETE /api/inventory/:id` - Delete inventory
-- `GET /api/inventory/summary` - Get inventory summary
-- `GET /api/inventory/low-stock` - Get low stock alerts
-
-#### Metrics
-- `GET /api/metrics/summary` - Get dashboard summary
-- `GET /api/metrics/blood-group-distribution` - Blood group stats
-- `GET /api/metrics/monthly-donations` - Monthly trends
-- `GET /api/metrics/request-status` - Request status overview
-
-#### Notifications
-- `GET /api/notifications` - Get all notifications
-- `GET /api/notifications/unread-count` - Get unread count
-- `PATCH /api/notifications/:id/read` - Mark as read
-- `PATCH /api/notifications/mark-all-read` - Mark all as read
-- `DELETE /api/notifications/:id` - Delete notification
+- `POST /api/inventory` - Create record
+- `PUT /api/inventory/:id` - Update record
+- `DELETE /api/inventory/:id` - Delete record
+- `GET /api/inventory/summary` - Get summary
+- `GET /api/inventory/low-stock` - Low stock alerts
+</details>
 
 ---
 
 ## 🐳 Docker Deployment
 
 ### Using Docker Compose
-
-The easiest way to run the entire application is using Docker Compose:
 
 ```bash
 # Start all services
@@ -471,19 +365,16 @@ docker-compose up -d --build
 docker-compose logs -f
 ```
 
-### Services
-
-- **MongoDB:** `localhost:27017`
-- **Server:** `localhost:5000`
-- **Client:** `localhost:3000`
+**Services:**
+- MongoDB: `localhost:27017`
+- Server: `localhost:5000`
+- Client: `localhost:3000`
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-### Contribution Guidelines
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) first.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -491,11 +382,13 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+
 ---
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -509,33 +402,39 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🙏 Acknowledgments
 
-- Thanks to all contributors who have helped improve this project
-- Special thanks to the open-source community for the amazing tools and libraries
+- Thanks to all contributors who help improve this project
+- Special thanks to the open-source community for amazing tools and libraries
+- Built with ❤️ to help save lives
 
 ---
 
 ## 📞 Support
 
-If you encounter any issues or have questions, please open an issue on GitHub.
+- 🐛 [Report a Bug](https://github.com/Jayasakthi-07/bdms-MERN/issues/new?template=bug_report.md)
+- 💡 [Request a Feature](https://github.com/Jayasakthi-07/bdms-MERN/issues/new?template=feature_request.md)
+- 💬 [Ask a Question](https://github.com/Jayasakthi-07/bdms-MERN/issues)
 
 ---
 
 ## 🎯 Roadmap
 
-Future enhancements planned:
 - [ ] Mobile app (React Native)
 - [ ] SMS notifications
 - [ ] Advanced analytics dashboard
 - [ ] Multi-language support
 - [ ] Blood bank location finder
 - [ ] Integration with hospital systems
+- [ ] PWA support
+- [ ] Dark mode enhancements
 
 ---
 
 <div align="center">
 
+### ⭐ Star this repo if you find it helpful!
+
 **Made with ❤️ for saving lives**
 
-⭐ Star this repo if you find it helpful!
+[⬆ Back to Top](#-blood-donation-management-system-bdms)
 
 </div>
