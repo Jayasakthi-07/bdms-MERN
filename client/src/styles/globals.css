@@ -1,0 +1,928 @@
+/* Optimized font loading with display=swap for better performance */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --premium-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    
+    /* Light theme colors */
+    --bg-primary: 0 0% 100%;
+    --bg-secondary: 210 40% 98%;
+    --text-primary: 222.2 84% 4.9%;
+    --text-secondary: 215 16% 47%;
+    --border-color: 214.3 31.8% 91.4%;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    
+    /* Dark theme colors */
+    --bg-primary: 222.2 84% 4.9%;
+    --bg-secondary: 217.2 32.6% 17.5%;
+    --text-primary: 210 40% 98%;
+    --text-secondary: 215 20% 65%;
+    --border-color: 217.2 32.6% 17.5%;
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Smooth theme transition - optimized for performance */
+  .theme-transition *,
+  .theme-transition *::before,
+  .theme-transition *::after {
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                fill 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                stroke 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: background-color, border-color, color, fill, stroke;
+  }
+
+  * {
+    @apply border-gray-200 dark:border-gray-800;
+  }
+
+  body {
+    @apply bg-white dark:bg-slate-950 text-gray-900 dark:text-gray-100;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    contain: layout style paint;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    font-family: 'Sora', 'Inter', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Premium Glass Effect with Enhanced Blur - Optimized */
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/70 dark:bg-slate-900/70 border border-white/20 dark:border-white/10 shadow-xl dark:shadow-2xl rounded-2xl;
+    box-shadow: 
+      0 8px 32px 0 rgba(31, 38, 135, 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    contain: layout style paint;
+  }
+  
+  .glass-card:hover {
+    @apply bg-white/80 dark:bg-slate-900/80;
+    box-shadow: 
+      0 20px 40px 0 rgba(31, 38, 135, 0.15),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .glass-card-dark {
+    @apply backdrop-blur-2xl bg-slate-900/90 border border-slate-700/50 shadow-2xl rounded-3xl;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Neumorphism Effect */
+  .neu-card {
+    @apply bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 rounded-3xl;
+    box-shadow: 
+      20px 20px 60px rgba(0, 0, 0, 0.1),
+      -20px -20px 60px rgba(255, 255, 255, 0.7),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .neu-card-dark {
+    box-shadow: 
+      20px 20px 60px rgba(0, 0, 0, 0.5),
+      -20px -20px 60px rgba(0, 0, 0, 0.3),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  /* Premium Button with Enhanced 3D Effects - Optimized */
+  .btn-premium {
+    @apply relative overflow-hidden bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold py-3 px-8 rounded-xl shadow-lg text-center;
+    background-size: 200% 200%;
+    animation: gradient-x 3s ease infinite;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                background-position 0.3s ease;
+    will-change: transform, background-position;
+    contain: layout style paint;
+  }
+  
+  .btn-premium:not(.btn-3d):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -12px rgba(99, 102, 241, 0.5);
+    background-position: right center;
+  }
+  
+  .btn-premium:not(.btn-3d):active {
+    transform: translateY(0px);
+  }
+
+  .btn-premium::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent;
+    transform: translateX(-100%);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-premium:hover::before {
+    transform: translateX(100%);
+  }
+
+  .btn-premium::after {
+    content: '';
+    @apply absolute inset-0 rounded-2xl;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .btn-premium:hover::after {
+    opacity: 1;
+  }
+
+  /* Glass Button Enhanced */
+  .btn-glass {
+    @apply backdrop-blur-xl bg-white/50 dark:bg-slate-800/50 border border-gray-200/50 dark:border-white/10 text-gray-900 dark:text-white font-semibold py-3 px-8 rounded-xl shadow-sm hover:bg-white/70 dark:hover:bg-slate-800/70 transition-all duration-300 hover:shadow-md active:scale-95 text-center;
+  }
+
+  /* Premium Card with Advanced 3D Effects - Optimized */
+  .premium-card {
+    @apply relative overflow-hidden glass-card p-8;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transform: translateZ(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    contain: layout style paint;
+  }
+  
+  .premium-card:hover {
+    transform: translateY(-12px) translateZ(20px) rotateX(2deg) scale(1.03);
+    box-shadow: 
+      0 25px 50px -12px rgba(99, 102, 241, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .premium-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10 opacity-0 transition-opacity duration-700;
+  }
+  
+  .premium-card:hover::before {
+    opacity: 1;
+  }
+
+  .premium-card::after {
+    content: '';
+    @apply absolute -inset-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl opacity-0 blur-xl transition-opacity duration-700;
+    z-index: -1;
+  }
+
+  .premium-card:hover::after {
+    opacity: 0.3;
+  }
+
+  /* Stats Card with Enhanced 3D Gradient Border - Optimized */
+  .stats-card {
+    @apply relative p-8 rounded-3xl backdrop-blur-2xl bg-white/60 dark:bg-slate-900/60 overflow-hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    contain: layout style paint;
+  }
+
+  .stats-card:hover {
+    transform: translateY(-10px) translateZ(15px) rotateY(2deg) scale(1.05);
+  }
+
+  .stats-card::before {
+    content: '';
+    @apply absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.7s;
+  }
+
+  .stats-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Testimonial Card with 3D Effects */
+  .testimonial-card {
+    @apply relative glass-card p-8 transition-all duration-500;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .testimonial-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-l-3xl opacity-0 transition-opacity duration-500;
+    transform: translateZ(10px);
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-10px) translateZ(20px) rotateX(-2deg);
+    box-shadow: 
+      0 20px 40px -12px rgba(99, 102, 241, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .testimonial-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Input Field Premium Enhanced */
+  .input-premium {
+    @apply w-full px-6 py-4 rounded-2xl backdrop-blur-xl bg-white/60 dark:bg-slate-900/60 border-2 border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/20 outline-none transition-all duration-300 placeholder:text-slate-400;
+  }
+
+  /* Disable all animations and transitions for Material-UI TextField */
+  .MuiOutlinedInput-root,
+  .MuiOutlinedInput-root *,
+  .MuiInputLabel-root,
+  .MuiInputLabel-root *,
+  .MuiOutlinedInput-root input,
+  .MuiOutlinedInput-root textarea,
+  .MuiOutlinedInput-root input::placeholder,
+  .MuiOutlinedInput-root textarea::placeholder,
+  .MuiOutlinedInput-root fieldset,
+  .MuiOutlinedInput-root.Mui-focused,
+  .MuiOutlinedInput-root.Mui-focused *,
+  .MuiOutlinedInput-root.Mui-focused input::placeholder,
+  .MuiOutlinedInput-root.Mui-focused textarea::placeholder,
+  .MuiOutlinedInput-root.Mui-focused fieldset {
+    animation: none !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+  }
+
+  /* Remove selection animations and styles */
+  .MuiOutlinedInput-root input::selection,
+  .MuiOutlinedInput-root textarea::selection,
+  .MuiOutlinedInput-root input::-moz-selection,
+  .MuiOutlinedInput-root textarea::-moz-selection {
+    background: rgba(99, 102, 241, 0.2) !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Remove double borders from Material-UI TextField - ensure only fieldset has border */
+  .MuiOutlinedInput-root {
+    border: none !important;
+    outline: none !important;
+  }
+
+  .MuiOutlinedInput-root * {
+    outline: none !important;
+    border-color: rgba(0, 0, 0, 0.23) !important;
+  }
+
+  .MuiOutlinedInput-root fieldset {
+    border-width: 1px !important;
+    border-color: rgba(0, 0, 0, 0.23) !important;
+    border-style: solid !important;
+    transition: none !important;
+    outline: none !important;
+  }
+
+  .MuiOutlinedInput-root.Mui-focused {
+    border: none !important;
+    outline: none !important;
+  }
+
+  .MuiOutlinedInput-root.Mui-focused * {
+    outline: none !important;
+    border-color: rgba(0, 0, 0, 0.23) !important;
+  }
+
+  .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-width: 1px !important;
+    border-color: rgba(0, 0, 0, 0.23) !important;
+    border-style: solid !important;
+    transition: none !important;
+    outline: none !important;
+  }
+
+  .MuiOutlinedInput-root:hover {
+    outline: none !important;
+  }
+
+  .MuiOutlinedInput-root:hover * {
+    outline: none !important;
+    border-color: rgba(0, 0, 0, 0.23) !important;
+  }
+
+  .MuiOutlinedInput-root:hover fieldset {
+    border-color: rgba(0, 0, 0, 0.23) !important;
+    border-style: solid !important;
+    transition: none !important;
+    outline: none !important;
+  }
+
+  /* Remove all focus rings and outlines */
+  .MuiOutlinedInput-root input:focus,
+  .MuiOutlinedInput-root textarea:focus {
+    outline: none !important;
+    border: none !important;
+  }
+
+  .MuiOutlinedInput-root input:focus-visible,
+  .MuiOutlinedInput-root textarea:focus-visible {
+    outline: none !important;
+    border: none !important;
+  }
+
+  /* Dark mode borders */
+  .dark .MuiOutlinedInput-root fieldset {
+    border-color: rgba(255, 255, 255, 0.23) !important;
+  }
+
+  .dark .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-color: rgba(255, 255, 255, 0.23) !important;
+  }
+
+  .dark .MuiOutlinedInput-root:hover fieldset {
+    border-color: rgba(255, 255, 255, 0.23) !important;
+  }
+
+  .dark .MuiOutlinedInput-root * {
+    border-color: rgba(255, 255, 255, 0.23) !important;
+  }
+
+  .dark .MuiOutlinedInput-root.Mui-focused * {
+    border-color: rgba(255, 255, 255, 0.23) !important;
+  }
+
+  .dark .MuiOutlinedInput-root:hover * {
+    border-color: rgba(255, 255, 255, 0.23) !important;
+  }
+
+  /* Ensure placeholder is always visible and not hidden by label or border - Light mode only */
+  .MuiOutlinedInput-root input::placeholder:not(.dark *),
+  .MuiOutlinedInput-root textarea::placeholder:not(.dark *),
+  html:not(.dark) .MuiOutlinedInput-root input::placeholder,
+  html:not(.dark) .MuiOutlinedInput-root textarea::placeholder {
+    opacity: 0.6 !important;
+    color: rgba(0, 0, 0, 0.6) !important;
+    visibility: visible !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .MuiOutlinedInput-root.Mui-focused input::placeholder:not(.dark *),
+  .MuiOutlinedInput-root.Mui-focused textarea::placeholder:not(.dark *),
+  html:not(.dark) .MuiOutlinedInput-root.Mui-focused input::placeholder,
+  html:not(.dark) .MuiOutlinedInput-root.Mui-focused textarea::placeholder {
+    opacity: 0.6 !important;
+    color: rgba(0, 0, 0, 0.6) !important;
+    visibility: visible !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Dark mode placeholder colors - MUST come after light mode rules and use maximum specificity */
+  html.dark .MuiOutlinedInput-root input::placeholder,
+  html.dark .MuiOutlinedInput-root textarea::placeholder,
+  html.dark .MuiOutlinedInput-root input::-webkit-input-placeholder,
+  html.dark .MuiOutlinedInput-root textarea::-webkit-input-placeholder,
+  html.dark .MuiOutlinedInput-root input::-moz-placeholder,
+  html.dark .MuiOutlinedInput-root textarea::-moz-placeholder,
+  html.dark .MuiOutlinedInput-root input:-ms-input-placeholder,
+  html.dark .MuiOutlinedInput-root textarea:-ms-input-placeholder,
+  html.dark .MuiOutlinedInput-input::placeholder,
+  html.dark .MuiOutlinedInput-input::-webkit-input-placeholder,
+  html.dark .MuiOutlinedInput-input::-moz-placeholder,
+  html.dark .MuiOutlinedInput-input:-ms-input-placeholder,
+  .dark .MuiOutlinedInput-root input::placeholder,
+  .dark .MuiOutlinedInput-root textarea::placeholder,
+  .dark .MuiOutlinedInput-root input::-webkit-input-placeholder,
+  .dark .MuiOutlinedInput-root textarea::-webkit-input-placeholder,
+  .dark .MuiOutlinedInput-root input::-moz-placeholder,
+  .dark .MuiOutlinedInput-root textarea::-moz-placeholder,
+  .dark .MuiOutlinedInput-root input:-ms-input-placeholder,
+  .dark .MuiOutlinedInput-root textarea:-ms-input-placeholder,
+  .dark .MuiOutlinedInput-input::placeholder,
+  .dark .MuiOutlinedInput-input::-webkit-input-placeholder,
+  .dark .MuiOutlinedInput-input::-moz-placeholder,
+  .dark .MuiOutlinedInput-input:-ms-input-placeholder {
+    opacity: 0.6 !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    visibility: visible !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  html.dark .MuiOutlinedInput-root.Mui-focused input::placeholder,
+  html.dark .MuiOutlinedInput-root.Mui-focused textarea::placeholder,
+  html.dark .MuiOutlinedInput-root.Mui-focused input::-webkit-input-placeholder,
+  html.dark .MuiOutlinedInput-root.Mui-focused textarea::-webkit-input-placeholder,
+  html.dark .MuiOutlinedInput-root.Mui-focused input::-moz-placeholder,
+  html.dark .MuiOutlinedInput-root.Mui-focused textarea::-moz-placeholder,
+  html.dark .MuiOutlinedInput-root.Mui-focused input:-ms-input-placeholder,
+  html.dark .MuiOutlinedInput-root.Mui-focused textarea:-ms-input-placeholder,
+  html.dark .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input::placeholder,
+  html.dark .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input::-webkit-input-placeholder,
+  html.dark .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input::-moz-placeholder,
+  html.dark .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input:-ms-input-placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused input::placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused textarea::placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused input::-webkit-input-placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused textarea::-webkit-input-placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused input::-moz-placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused textarea::-moz-placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused input:-ms-input-placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused textarea:-ms-input-placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input::placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input::-webkit-input-placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input::-moz-placeholder,
+  .dark .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input:-ms-input-placeholder {
+    opacity: 0.6 !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    visibility: visible !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  /* Remove gray color from labels - make them dark/visible */
+  .MuiInputLabel-root {
+    z-index: 1;
+    color: rgba(0, 0, 0, 0.87) !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .MuiInputLabel-root.Mui-focused {
+    color: #6366f1 !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .MuiInputLabel-root.MuiInputLabel-shrink {
+    z-index: 2;
+    color: rgba(0, 0, 0, 0.87) !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .MuiInputLabel-root.Mui-error {
+    color: #d32f2f !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Dark mode label colors */
+  .dark .MuiInputLabel-root {
+    color: rgba(255, 255, 255, 0.87) !important;
+  }
+
+  .dark .MuiInputLabel-root.Mui-focused {
+    color: #818cf8 !important;
+  }
+
+  .dark .MuiInputLabel-root.MuiInputLabel-shrink {
+    color: rgba(255, 255, 255, 0.87) !important;
+  }
+
+  .MuiOutlinedInput-input {
+    z-index: 1;
+    position: relative;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Remove all hover animations */
+  .MuiOutlinedInput-root:hover {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .MuiOutlinedInput-root:hover fieldset {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Disable text selection animations and make it instant */
+  .MuiOutlinedInput-root input,
+  .MuiOutlinedInput-root textarea {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+  }
+
+  /* Ensure labels are never gray - force dark colors */
+  .MuiFormLabel-root,
+  .MuiInputLabel-root {
+    color: rgba(0, 0, 0, 0.87) !important;
+  }
+
+  .MuiFormLabel-root.Mui-focused,
+  .MuiInputLabel-root.Mui-focused {
+    color: rgba(0, 0, 0, 0.87) !important;
+  }
+
+  .MuiFormLabel-root.Mui-disabled,
+  .MuiInputLabel-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.38) !important;
+  }
+
+  /* Dark mode labels */
+  .dark .MuiFormLabel-root,
+  .dark .MuiInputLabel-root {
+    color: rgba(255, 255, 255, 0.87) !important;
+  }
+
+  .dark .MuiFormLabel-root.Mui-focused,
+  .dark .MuiInputLabel-root.Mui-focused {
+    color: rgba(255, 255, 255, 0.87) !important;
+  }
+
+  /* Floating Label */
+  .floating-label {
+    @apply absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none transition-all duration-300;
+  }
+
+  .input-premium:focus + .floating-label,
+  .input-premium:not(:placeholder-shown) + .floating-label {
+    @apply -top-3 left-4 text-xs bg-white dark:bg-slate-900 px-2 text-indigo-600 dark:text-indigo-400;
+  }
+
+  /* Badge Premium Enhanced */
+  .badge-premium {
+    @apply inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-sm font-semibold shadow-xl;
+  }
+
+  /* Sidebar Premium */
+  .sidebar-premium {
+    @apply h-screen sticky top-0 glass-card border-r-2 border-white/20 dark:border-slate-800/50;
+  }
+
+  /* Navbar Premium Enhanced */
+  .navbar-premium {
+    @apply sticky top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-slate-900/70 border-b border-gray-200/50 dark:border-white/10 shadow-sm;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbar-premium.scrolled {
+    @apply bg-white/90 dark:bg-slate-900/90 border-b border-gray-200 dark:border-white/10 shadow-lg;
+    backdrop-filter: blur(20px);
+  }
+
+  /* Hero Section Enhanced */
+  .hero-section {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    background-size: 400% 400%;
+    animation: gradient-xy 20s ease infinite;
+  }
+
+  .hero-section::before {
+    content: '';
+    @apply absolute inset-0;
+    background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.3), transparent 50%);
+  }
+  
+  /* Smooth scroll behavior - Optimized */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+  
+  /* Performance optimizations */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  img, video {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+  
+  /* Prevent layout shift */
+  [data-loading] {
+    min-height: 200px;
+  }
+  
+  /* Optimize font rendering */
+  body, button, input, textarea {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* Remove all focus rings globally */
+  *:focus-visible {
+    outline: none !important;
+    ring: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Specifically remove focus rings from Material-UI inputs */
+  .MuiOutlinedInput-root:focus-visible,
+  .MuiOutlinedInput-root input:focus-visible,
+  .MuiOutlinedInput-root textarea:focus-visible {
+    outline: none !important;
+    ring: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Animated Background Blobs Enhanced */
+  .blob {
+    @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob;
+  }
+
+  .blob-purple {
+    @apply bg-indigo-400 top-0 -left-4 w-96 h-96;
+    animation-delay: 0s;
+  }
+
+  .blob-pink {
+    @apply bg-pink-400 top-0 -right-4 w-96 h-96;
+    animation-delay: 2s;
+  }
+
+  .blob-blue {
+    @apply bg-blue-400 -bottom-8 left-20 w-96 h-96;
+    animation-delay: 4s;
+  }
+
+  /* Shimmer Effect Enhanced */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  /* Glow Text Enhanced */
+  .text-glow {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500;
+    text-shadow: 0 0 40px rgba(99, 102, 241, 0.5);
+    background-size: 200% auto;
+    animation: gradient-x 3s linear infinite;
+  }
+
+  /* Neon Border Enhanced */
+  .neon-border {
+    @apply relative;
+  }
+
+  .neon-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 blur-xl opacity-75 animate-glow;
+    z-index: -1;
+  }
+
+  /* Feature Icon Container with 3D Effects - Optimized */
+  .feature-icon {
+    @apply relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white shadow-xl;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    will-change: transform;
+    contain: layout style paint;
+  }
+
+  .feature-icon:hover {
+    transform: scale(1.15) rotate(10deg) translateZ(20px);
+    box-shadow: 
+      0 25px 50px rgba(99, 102, 241, 0.5),
+      0 0 0 4px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Custom Scrollbar Premium */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-indigo-600 via-purple-600 to-pink-600;
+}
+
+/* Selection */
+::selection {
+  @apply bg-indigo-500/30 text-indigo-900 dark:text-indigo-100;
+}
+
+
+/* Loading Animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Premium Loading Spinner */
+.loader-premium {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #667eea);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: spin-slow 1s infinite linear;
+}
+
+/* Gradient Text Animation Enhanced */
+.animated-gradient-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500;
+  background-size: 200% auto;
+  animation: gradient-x 3s linear infinite;
+}
+
+/* Section Spacing */
+.section-spacing {
+  @apply py-24 md:py-32;
+}
+
+/* Container Max Width */
+.container-premium {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Smooth Fade In */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Premium Grid Pattern Background */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Gradient Mesh Background */
+.gradient-mesh {
+  background: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%);
+}
+
+  /* 3D Transform Utilities - Optimized */
+  .card-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    contain: layout style paint;
+  }
+
+  .card-3d:hover {
+    transform: translateY(-15px) translateZ(30px) rotateX(3deg) rotateY(-2deg);
+  }
+
+/* 3D Floating Animation */
+@keyframes float3d {
+  0%, 100% { 
+    transform: translateY(0px) translateZ(0px) rotateX(0deg);
+  }
+  50% { 
+    transform: translateY(-20px) translateZ(20px) rotateX(5deg);
+  }
+}
+
+.float-3d {
+  animation: float3d 6s ease-in-out infinite;
+}
+
+/* 3D Glow Effect */
+.glow-3d {
+  position: relative;
+}
+
+.glow-3d::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: -1;
+  transform: translateZ(-10px);
+}
+
+.glow-3d:hover::before {
+  opacity: 0.6;
+}
+
+/* 3D Button Effect */
+.btn-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-3d:hover {
+  transform: translateY(-3px) translateZ(10px) rotateX(5deg);
+}
+
+.btn-3d:active {
+  transform: translateY(0px) translateZ(5px) rotateX(2deg);
+}
+
+/* 3D Text Effect */
+.text-3d {
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.1),
+    0 2px 0 rgba(0, 0, 0, 0.1),
+    0 3px 0 rgba(0, 0, 0, 0.1),
+    0 4px 0 rgba(0, 0, 0, 0.1),
+    0 5px 0 rgba(0, 0, 0, 0.1),
+    0 6px 1px rgba(0, 0, 0, 0.1),
+    0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+  transform: perspective(1000px) rotateX(2deg);
+}

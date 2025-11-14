@@ -1,0 +1,43 @@
+{
+  "name": "bdms-mern-monorepo",
+  "version": "1.0.0",
+  "description": "Blood Donation Management System - Production MERN Stack",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "install:all": "npm install && cd client && npm install && cd ../server && npm install",
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm run dev",
+    "build": "npm run client:build && npm run server:build",
+    "client:build": "cd client && npm run build",
+    "server:build": "cd server && npm run build",
+    "seed": "cd server && npm run seed",
+    "lint": "npm run lint:client && npm run lint:server",
+    "lint:client": "cd client && npm run lint",
+    "lint:server": "cd server && npm run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:rebuild": "docker-compose up -d --build",
+    "start:prod": "cd server && npm start"
+  },
+  "keywords": [
+    "blood-donation",
+    "mern",
+    "typescript",
+    "healthcare"
+  ],
+  "author": "BDMS Team",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.5.6",
+    "prettier": "^3.1.1",
+    "tailwindcss": "^4.1.17"
+  }
+}
