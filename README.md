@@ -118,7 +118,7 @@
 - npm or yarn
 - MongoDB (v7 or higher) or Docker
 
-### Installation
+### Local Development
 
 ```bash
 # Clone the repository
@@ -137,6 +137,17 @@ npm run dev
 ```
 
 Visit `http://localhost:5173` to see the application! 🎉
+
+### 🌐 Deploy Online (Free)
+
+Want to host your app online for free? Check out our **[Deployment Guide](DEPLOYMENT.md)**!
+
+Deploy to:
+- **Frontend:** Vercel (Free)
+- **Backend:** Render (Free)
+- **Database:** MongoDB Atlas (Free)
+
+Get your public link in minutes! 🚀
 
 ---
 
