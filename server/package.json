@@ -1,8 +1,26 @@
 {
   "name": "bdms-server",
   "version": "1.0.0",
-  "description": "BDMS Backend API",
+  "description": "Blood Donation Management System - Node.js Backend API",
   "main": "dist/server.js",
+  "keywords": [
+    "blood-donation",
+    "nodejs",
+    "express",
+    "typescript",
+    "mongodb",
+    "mongoose",
+    "api",
+    "rest-api",
+    "backend",
+    "jwt",
+    "authentication",
+    "socket-io",
+    "real-time",
+    "healthcare",
+    "swagger",
+    "nodemailer"
+  ],
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",

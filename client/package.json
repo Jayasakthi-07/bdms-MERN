@@ -1,7 +1,24 @@
 {
   "name": "bdms-client",
   "version": "1.0.0",
+  "description": "Blood Donation Management System - React Frontend",
   "type": "module",
+  "keywords": [
+    "blood-donation",
+    "react",
+    "typescript",
+    "vite",
+    "material-ui",
+    "mui",
+    "tailwindcss",
+    "frontend",
+    "spa",
+    "healthcare",
+    "donor-portal",
+    "react-query",
+    "socket-io-client",
+    "real-time-notifications"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

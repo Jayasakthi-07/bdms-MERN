@@ -9,6 +9,10 @@
 
 **A comprehensive web application for managing blood donation requests, donor profiles, inventory, and administrative operations.**
 
+### 🏷️ GitHub Topics
+
+`blood-donation` `blood-bank` `mern-stack` `mongodb` `express` `react` `nodejs` `typescript` `healthcare` `medical` `donor-management` `inventory-management` `socket-io` `real-time` `material-ui` `tailwindcss` `jwt-authentication` `donation-tracking` `blood-inventory` `healthcare-management`
+
 </div>
 
 ---
