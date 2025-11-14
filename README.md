@@ -9,113 +9,107 @@
 
 **A comprehensive web application for managing blood donation requests, donor profiles, inventory, and administrative operations.**
 
-**ஒரு comprehensive web application blood donation requests, donor profiles, inventory, மற்றும் administrative operations manage பண்ணுவதற்கு.**
-
 </div>
 
 ---
 
-## 📋 Table of Contents / உள்ளடக்கம்
+## 📋 Table of Contents
 
-- [About / பற்றி](#about--பற்றி)
-- [Features / வசதிகள்](#features--வசதிகள்)
-- [Tech Stack / தொழில்நுட்பம்](#tech-stack--தொழில்நுட்பம்)
-- [Prerequisites / முன்நிபந்தனைகள்](#prerequisites--முன்நிபந்தனைகள்)
-- [Installation / நிறுவுதல்](#installation--நிறுவுதல்)
-- [Configuration / கட்டமைப்பு](#configuration--கட்டமைப்பு)
-- [Usage / பயன்பாடு](#usage--பயன்பாடு)
-- [Project Structure / திட்ட அமைப்பு](#project-structure--திட்ட-அமைப்பு)
-- [API Documentation / API ஆவணம்](#api-documentation--api-ஆவணம்)
-- [Docker Deployment / Docker பயன்பாடு](#docker-deployment--docker-பயன்பாடு)
-- [Contributing / பங்களிப்பு](#contributing--பங்களிப்பு)
-- [License / உரிமம்](#license--உரிமம்)
+- [About](#about)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [API Documentation](#api-documentation)
+- [Docker Deployment](#docker-deployment)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## 🎯 About / பற்றி
+## 🎯 About
 
-**English:**
 BDMS is a full-stack web application built with the MERN (MongoDB, Express.js, React, Node.js) stack. It provides a complete solution for managing blood donation operations, including donor registration, appointment scheduling, inventory management, and real-time notifications. The system ensures efficient coordination between donors and administrators while maintaining comprehensive audit logs and analytics.
 
-**Thanglish:**
-BDMS ஒரு full-stack web application, MERN (MongoDB, Express.js, React, Node.js) stack use பண்ணி build பண்ணப்பட்டது. இது blood donation operations manage பண்ண complete solution provide பண்ணுது, including donor registration, appointment scheduling, inventory management, மற்றும் real-time notifications. System efficient coordination ensure பண்ணுது donors மற்றும் administrators இடையே, comprehensive audit logs மற்றும் analytics maintain பண்ணி.
-
 ---
 
-## ✨ Features / வசதிகள்
+## ✨ Features
 
-### For Donors / Donors க்கு
+### For Donors
 
-- ✅ **User Registration & Authentication** / **User Registration மற்றும் Authentication**
+- ✅ **User Registration & Authentication**
   - Secure signup and login with JWT tokens
   - Password reset functionality
   - Profile management
 
-- ✅ **Eligibility Checker** / **Eligibility Checker**
+- ✅ **Eligibility Checker**
   - Automatic eligibility verification based on:
     - Age requirements (18-65 years)
     - Minimum weight (45kg)
     - Donation interval (90 days between donations)
     - Health status
 
-- ✅ **Donation Request Management** / **Donation Request Management**
+- ✅ **Donation Request Management**
   - Create new donation requests
   - View request status (Pending, Approved, Rejected, Completed)
   - Track donation history
   - Cancel requests if needed
 
-- ✅ **Real-time Notifications** / **Real-time Notifications**
+- ✅ **Real-time Notifications**
   - Socket.io powered instant notifications
   - Email notifications for important updates
   - Notification bell with unread count
 
-- ✅ **Dashboard & Analytics** / **Dashboard மற்றும் Analytics**
+- ✅ **Dashboard & Analytics**
   - Personal donation statistics
   - Badge system for achievements
   - Donation history with detailed records
 
-### For Administrators / Administrators க்கு
+### For Administrators
 
-- ✅ **Donor Management** / **Donor Management**
+- ✅ **Donor Management**
   - View all registered donors
   - Search and filter donors by blood group, status, etc.
   - Activate/deactivate donor accounts
   - View detailed donor profiles
 
-- ✅ **Request Approval Queue** / **Request Approval Queue**
+- ✅ **Request Approval Queue**
   - Review pending donation requests
   - Approve or reject requests with notes
   - Schedule appointments
   - Mark requests as completed
 
-- ✅ **Inventory Management** / **Inventory Management**
+- ✅ **Inventory Management**
   - Track blood stock by blood group
   - Low stock alerts
   - Add, update, and delete inventory records
   - View inventory summary and statistics
 
-- ✅ **Analytics & Metrics** / **Analytics மற்றும் Metrics**
+- ✅ **Analytics & Metrics**
   - Dashboard with key metrics
   - Blood group distribution charts
   - Monthly donation trends
   - Request status overview
   - Fulfillment rate analysis
 
-- ✅ **Audit Logs** / **Audit Logs**
+- ✅ **Audit Logs**
   - Complete activity tracking
   - User action history
   - System event logs
 
-- ✅ **Settings Management** / **Settings Management**
+- ✅ **Settings Management**
   - Update admin profile
   - Change password
   - Account information
 
 ---
 
-## 🛠️ Tech Stack / தொழில்நுட்பம்
+## 🛠️ Tech Stack
 
-### Frontend / Frontend
+### Frontend
 
 - **React 18** - UI library
 - **TypeScript** - Type safety
@@ -131,7 +125,7 @@ BDMS ஒரு full-stack web application, MERN (MongoDB, Express.js, React, Nod
 - **Framer Motion** - Animations
 - **React Hot Toast** - Notifications
 
-### Backend / Backend
+### Backend
 
 - **Node.js** - Runtime environment
 - **Express.js** - Web framework
@@ -148,7 +142,7 @@ BDMS ஒரு full-stack web application, MERN (MongoDB, Express.js, React, Nod
 - **CORS** - Cross-origin resource sharing
 - **Express Rate Limit** - Rate limiting
 
-### DevOps / DevOps
+### DevOps
 
 - **Docker** - Containerization
 - **Docker Compose** - Multi-container orchestration
@@ -156,42 +150,35 @@ BDMS ஒரு full-stack web application, MERN (MongoDB, Express.js, React, Nod
 
 ---
 
-## 📦 Prerequisites / முன்நிபந்தனைகள்
+## 📦 Prerequisites
 
 Before you begin, ensure you have the following installed:
 
-**English:**
 - Node.js (v18 or higher)
 - npm or yarn
 - MongoDB (v7 or higher) or use Docker
 - Git
 
-**Thanglish:**
-- Node.js (v18 அல்லது higher)
-- npm அல்லது yarn
-- MongoDB (v7 அல்லது higher) அல்லது Docker use பண்ணலாம்
-- Git
-
 ---
 
-## 🚀 Installation / நிறுவுதல்
+## 🚀 Installation
 
-### Step 1: Clone the Repository / Repository Clone பண்ண
+### Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/Jayasakthi-07/bdms-MERN.git
 cd bdms-MERN
 ```
 
-### Step 2: Install Dependencies / Dependencies Install பண்ண
+### Step 2: Install Dependencies
 
-**Option 1: Install All at Once (Recommended) / Option 1: எல்லாம் ஒரேயடியாக Install பண்ண (Recommended)**
+**Option 1: Install All at Once (Recommended)**
 
 ```bash
 npm run install:all
 ```
 
-**Option 2: Install Separately / Option 2: தனித்தனியாக Install பண்ண**
+**Option 2: Install Separately**
 
 ```bash
 # Install root dependencies
@@ -208,9 +195,9 @@ npm install
 cd ..
 ```
 
-### Step 3: Environment Setup / Environment Setup பண்ண
+### Step 3: Environment Setup
 
-**Server Environment / Server Environment:**
+**Server Environment:**
 
 Create a `.env` file in the `server` directory:
 
@@ -250,7 +237,7 @@ RATE_LIMIT_WINDOW_MS=900000
 RATE_LIMIT_MAX_REQUESTS=100
 ```
 
-**Client Environment / Client Environment:**
+**Client Environment:**
 
 Create a `.env` file in the `client` directory:
 
@@ -267,11 +254,11 @@ VITE_API_URL=http://localhost:5000
 
 ---
 
-## ⚙️ Configuration / கட்டமைப்பு
+## ⚙️ Configuration
 
-### MongoDB Setup / MongoDB Setup
+### MongoDB Setup
 
-**Option 1: Local MongoDB / Option 1: Local MongoDB**
+**Option 1: Local MongoDB**
 
 Make sure MongoDB is running on your system:
 
@@ -283,7 +270,7 @@ mongod
 sudo systemctl start mongod
 ```
 
-**Option 2: Docker MongoDB / Option 2: Docker MongoDB**
+**Option 2: Docker MongoDB**
 
 Use the provided `docker-compose.yml`:
 
@@ -293,11 +280,11 @@ docker-compose up -d mongodb
 
 ---
 
-## 🎮 Usage / பயன்பாடு
+## 🎮 Usage
 
-### Development Mode / Development Mode
+### Development Mode
 
-**Run Both Client and Server / Client மற்றும் Server இரண்டையும் Run பண்ண:**
+**Run Both Client and Server:**
 
 ```bash
 npm run dev
@@ -307,7 +294,7 @@ This will start:
 - **Server** on `http://localhost:5000`
 - **Client** on `http://localhost:5173`
 
-**Run Separately / தனித்தனியாக Run பண்ண:**
+**Run Separately:**
 
 ```bash
 # Server only
@@ -317,7 +304,7 @@ npm run server:dev
 npm run client:dev
 ```
 
-### Seed Database / Database Seed பண்ண
+### Seed Database
 
 To populate the database with sample data:
 
@@ -332,7 +319,7 @@ cd server
 npm run seed:tamil
 ```
 
-### Production Build / Production Build
+### Production Build
 
 ```bash
 # Build both client and server
@@ -345,7 +332,7 @@ npm run client:build
 npm run server:build
 ```
 
-### Start Production Server / Production Server Start பண்ண
+### Start Production Server
 
 ```bash
 npm run start:prod
@@ -353,7 +340,7 @@ npm run start:prod
 
 ---
 
-## 📁 Project Structure / திட்ட அமைப்பு
+## 📁 Project Structure
 
 ```
 bdms-MERN/
@@ -401,21 +388,16 @@ bdms-MERN/
 
 ---
 
-## 📚 API Documentation / API ஆவணம்
+## 📚 API Documentation
 
 Once the server is running, you can access the Swagger API documentation at:
 
-**English:**
 - **Swagger UI:** `http://localhost:5000/api-docs`
 - **API Base URL:** `http://localhost:5000/api`
 
-**Thanglish:**
-- **Swagger UI:** `http://localhost:5000/api-docs`
-- **API Base URL:** `http://localhost:5000/api`
+### Main API Endpoints
 
-### Main API Endpoints / Main API Endpoints
-
-#### Authentication / Authentication
+#### Authentication
 - `POST /api/auth/register` - Register new user
 - `POST /api/auth/login` - User login
 - `POST /api/auth/logout` - User logout
@@ -423,20 +405,20 @@ Once the server is running, you can access the Swagger API documentation at:
 - `POST /api/auth/forgot-password` - Request password reset
 - `POST /api/auth/reset-password` - Reset password
 
-#### User / User
+#### User
 - `GET /api/users/me` - Get current user profile
 - `PUT /api/users/me` - Update user profile
 - `PATCH /api/users/me/change-password` - Change password
 - `GET /api/users/me/history` - Get donation history
 - `GET /api/users/me/eligibility` - Check eligibility
 
-#### Donation Requests / Donation Requests
+#### Donation Requests
 - `POST /api/requests` - Create donation request
 - `GET /api/requests` - Get user's requests
 - `GET /api/requests/:id` - Get request by ID
 - `PATCH /api/requests/:id/cancel` - Cancel request
 
-#### Admin / Admin
+#### Admin
 - `GET /api/admin/donors` - Get all donors
 - `GET /api/admin/donors/:id` - Get donor by ID
 - `PATCH /api/admin/donors/:id/toggle-status` - Toggle donor status
@@ -446,7 +428,7 @@ Once the server is running, you can access the Swagger API documentation at:
 - `PATCH /api/admin/requests/:id/complete` - Complete request
 - `GET /api/admin/audit-logs` - Get audit logs
 
-#### Inventory / Inventory
+#### Inventory
 - `GET /api/inventory` - Get all inventory
 - `POST /api/inventory` - Create inventory record
 - `PUT /api/inventory/:id` - Update inventory
@@ -454,13 +436,13 @@ Once the server is running, you can access the Swagger API documentation at:
 - `GET /api/inventory/summary` - Get inventory summary
 - `GET /api/inventory/low-stock` - Get low stock alerts
 
-#### Metrics / Metrics
+#### Metrics
 - `GET /api/metrics/summary` - Get dashboard summary
 - `GET /api/metrics/blood-group-distribution` - Blood group stats
 - `GET /api/metrics/monthly-donations` - Monthly trends
 - `GET /api/metrics/request-status` - Request status overview
 
-#### Notifications / Notifications
+#### Notifications
 - `GET /api/notifications` - Get all notifications
 - `GET /api/notifications/unread-count` - Get unread count
 - `PATCH /api/notifications/:id/read` - Mark as read
@@ -469,11 +451,10 @@ Once the server is running, you can access the Swagger API documentation at:
 
 ---
 
-## 🐳 Docker Deployment / Docker பயன்பாடு
+## 🐳 Docker Deployment
 
-### Using Docker Compose / Docker Compose Use பண்ண
+### Using Docker Compose
 
-**English:**
 The easiest way to run the entire application is using Docker Compose:
 
 ```bash
@@ -490,24 +471,7 @@ docker-compose up -d --build
 docker-compose logs -f
 ```
 
-**Thanglish:**
-Entire application run பண்ண easiest way Docker Compose use பண்ண:
-
-```bash
-# எல்லா services start பண்ண
-docker-compose up -d
-
-# எல்லா services stop பண்ண
-docker-compose down
-
-# Rebuild பண்ணி start பண்ண
-docker-compose up -d --build
-
-# Logs பாரு
-docker-compose logs -f
-```
-
-### Services / Services
+### Services
 
 - **MongoDB:** `localhost:27017`
 - **Server:** `localhost:5000`
@@ -515,15 +479,11 @@ docker-compose logs -f
 
 ---
 
-## 🤝 Contributing / பங்களிப்பு
+## 🤝 Contributing
 
-**English:**
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-**Thanglish:**
-Contributions welcome! Pull Request submit பண்ணலாம். Major changes க்கு, first issue open பண்ணி discuss பண்ணலாம்.
-
-### Contribution Guidelines / Contribution Guidelines
+### Contribution Guidelines
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -533,15 +493,13 @@ Contributions welcome! Pull Request submit பண்ணலாம். Major chang
 
 ---
 
-## 📝 License / உரிமம்
+## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-**MIT License** - இந்த project MIT License கீழ் licensed. Details க்கு LICENSE file பாரு.
-
 ---
 
-## 👥 Authors / ஆசிரியர்கள்
+## 👥 Authors
 
 **BDMS Team**
 
@@ -549,31 +507,21 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-## 🙏 Acknowledgments / நன்றிகள்
+## 🙏 Acknowledgments
 
-**English:**
 - Thanks to all contributors who have helped improve this project
 - Special thanks to the open-source community for the amazing tools and libraries
 
-**Thanglish:**
-- இந்த project improve பண்ண help பண்ண contributors க்கு thanks
-- Amazing tools மற்றும் libraries க்கு open-source community க்கு special thanks
-
 ---
 
-## 📞 Support / ஆதரவு
+## 📞 Support
 
-**English:**
 If you encounter any issues or have questions, please open an issue on GitHub.
 
-**Thanglish:**
-எந்த issues அல்லது questions இருந்தா, GitHub இல் issue open பண்ணலாம்.
-
 ---
 
-## 🎯 Roadmap / Roadmap
+## 🎯 Roadmap
 
-**English:**
 Future enhancements planned:
 - [ ] Mobile app (React Native)
 - [ ] SMS notifications
@@ -582,21 +530,12 @@ Future enhancements planned:
 - [ ] Blood bank location finder
 - [ ] Integration with hospital systems
 
-**Thanglish:**
-Future enhancements planned:
-- [ ] Mobile app (React Native)
-- [ ] SMS notifications
-- [ ] Advanced analytics dashboard
-- [ ] Multi-language support
-- [ ] Blood bank location finder
-- [ ] Hospital systems integration
-
 ---
 
 <div align="center">
 
-**Made with ❤️ for saving lives / உயிர்களை காப்பாற்றுவதற்காக ❤️ உடன் செய்யப்பட்டது**
+**Made with ❤️ for saving lives**
 
-⭐ Star this repo if you find it helpful! / Helpful ஆனா இந்த repo-வை ⭐ star பண்ண!
+⭐ Star this repo if you find it helpful!
 
 </div>
